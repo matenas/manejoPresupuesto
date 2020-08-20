@@ -2,10 +2,10 @@ import React, {Fragment, useState} from 'react';
 import Error from './Error';
 
 
-const Pregunta = () => {
+const Pregunta = ({setPresupuesto, setRestante, setMostrarPregunta}) => {
     
     //definir el state
-    const [cantindad, setCantidad] = useState(0);
+    const [cantidad, setCantidad] = useState(0);
     const [error, setError] = useState(false);
 
     //funcion que lee el presupuesto 
@@ -19,13 +19,16 @@ const Pregunta = () => {
         e.preventDefault();
 
         //validar
-        if(cantindad < 1 || isNaN(cantindad)) {
+        if(cantidad < 1 || isNaN(cantidad)) {
             setError(true);
             return;
         }
 
         //que hacer despues de validar
         setError(false);
+        setPresupuesto(cantidad);
+        setRestante(cantidad);
+        setMostrarPregunta(false);
     }
     
     return (
