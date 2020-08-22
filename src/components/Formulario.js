@@ -5,7 +5,7 @@ import shortId from 'shortid';
 
 
 
-function Formulario({agregarNuevoGasto}) {
+function Formulario({setGasto,setCrearGasto}) {
     
     const [ nombreGasto, setNombreGasto ] = useState('');
     const [cantidadGasto, setCantidadGasto] = useState(0);
@@ -31,7 +31,8 @@ function Formulario({agregarNuevoGasto}) {
         };
 
         //pasar el gasto al componente principal para listarlo
-        agregarNuevoGasto(gasto);
+        setGasto(gasto);
+        setCrearGasto(true);
 
 
         //resetear el form
